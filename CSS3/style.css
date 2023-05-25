@@ -90,7 +90,7 @@ main {
     box-shadow: -2px 3px 0 #222, 4px 6px 0 #000;
 }
 
-.button:active { /*reação ao clicar no botão*/
+.button:active { /*Reaction to clicking the button*/
     box-shadow: inset -4px 4px 0 #222;
-    font-size: 0.9rem; /*a font diminui quando voce pressiona o botão dando impressão de afundar*/
+    font-size: 0.9rem; /*the font shrinks when you press the button*/
 }

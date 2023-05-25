@@ -1,4 +1,4 @@
-// criar uma função para fazer as buscar dos pokemons
+// create a function to search pokemons
 const pokemonName = document.querySelector('.pokemon__name');
 const pokemonNumber = document.querySelector('.pokemon__number');
 const pokemonImage = document.querySelector('.pokemon__image');
@@ -8,7 +8,7 @@ const input = document.querySelector('.input__search');
 const buttonPrev = document.querySelector('.btn-prev');
 const buttonNext = document.querySelector('.btn-next');
 
-let searchPokemon = 1; //LET GLOBAL faz com que a contagem inicie do um e ao clicar em NEXT avance para 2 e assim em diante
+let searchPokemon = 1; //LET GLOBAL makes the count start from one and when clicking NEXT advances to 2 and so on
 //
 
 
@@ -21,11 +21,11 @@ if (APIResponse.status == 200) {
  }
 }
 
-// função para redenrizar os dados na tela
+// function to redefine the data on the screen
 const renderPokemon = async (pokemon) => {
 
     pokemonName.innerHTML = 'Loading...'; 
-    pokemonNumber.innerHTML = ''//antes de executar a APP que vem logo em seguida, adicionamos essa linha que diz que esta carregando
+    pokemonNumber.innerHTML = ''//before running the APP that comes right after, we add this line that says it is loading
 
 
     const data = await fetchPokemon(pokemon);
@@ -38,19 +38,19 @@ const renderPokemon = async (pokemon) => {
     input.value = '';
     searchPokemon = data.id;
 } else {
-    pokemonImage.style.display = 'none'; //Imagem desaparece quando pokemon não é encontrado
+    pokemonImage.style.display = 'none'; //Makes the image appear
     pokemonName.innerHTML = 'Not found :c';
     pokemonNumber.innerHTML = '';
 }
 }
 
-// função para pehar o que foi digitado no input e fazer a pesquisa
-// como se trata de um FORMULARIO ele possui um comportamento padrão, então nesse caso é necessário bloquea-lo
+// function to get what was typed in the input and do the search
+// as it is a FORM, it has a standard behavior, so in this case it is necessary to block it
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     renderPokemon(input.value.toLowerCase());
-     // limpar o imput
+     // clear the input
 });
 
 buttonPrev.addEventListener('click', () => {
@@ -62,7 +62,8 @@ buttonPrev.addEventListener('click', () => {
 
 buttonNext.addEventListener('click', () => {
     searchPokemon += 1;
-    renderPokemon(searchPokemon); //após clicar em next que vai receber mais um essa funcção vai renderizar e mostrar na tela
+    renderPokemon(searchPokemon); //after clicking on next which will receive one more this function will render and show on the screen
+
 });
 
 renderPokemon(searchPokemon);
