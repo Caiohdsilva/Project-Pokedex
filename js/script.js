@@ -67,3 +67,4 @@ buttonNext.addEventListener('click', () => {
 });
 
 renderPokemon(searchPokemon);
+//teste
